@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'academia_foco_total_secret_key';
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://academia-foco-total-frontend.netlify.app', 'http://localhost:3000'],
+  credentials: true
+} ));
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
